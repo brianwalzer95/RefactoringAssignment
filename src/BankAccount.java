@@ -1,12 +1,9 @@
 public class BankAccount {
 	
+	//Join the data types together to tidy the code up
 	private int accountID;
-	private String accountNumber;
-	private String surname;
-	private String firstName;
-	private String accountType;
-	private double balance;
-	private double overdraft;
+	private String accountNumber, accountType, surname, firstName;
+	private double balance, overdraft;
 	
 	public static int count = 0;
 	
@@ -19,12 +16,7 @@ public class BankAccount {
 		this.balance = balance;
 		this.overdraft = overdraft;
 	}
-	
-	public BankAccount(){
-		this(0, "", "", "", "", 0.0, 0.0);
-	}
-	
-	
+	//Removed Blank Constructor as there is no need for it
 	
 	public int getAccountID() {
 		return accountID;
@@ -58,13 +50,7 @@ public class BankAccount {
 		this.accountType = accountType;
 	}
 	
-	public void setAccType(String accType){
-		accType = accType;
-	}
-	
-	public String getAccType(){
-		return accountType;
-	}
+	//Duplicate Account Type Getter and Setter. No need for this.
 	
 	public String getFirstName() {
 		return firstName;
@@ -95,3 +81,5 @@ public class BankAccount {
 	}
 
 }
+
+
