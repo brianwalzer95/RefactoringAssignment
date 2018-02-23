@@ -1,9 +1,5 @@
-import java.io.EOFException;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.util.Map;
+import java.io.*;
+import java.util.*;
 
 import javax.swing.*;
 

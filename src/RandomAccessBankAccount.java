@@ -1,5 +1,4 @@
-import java.io.RandomAccessFile;
-import java.io.IOException;
+import java.io.*;
 
 public class RandomAccessBankAccount extends BankAccount {
 	public static final int SIZE = 140;
