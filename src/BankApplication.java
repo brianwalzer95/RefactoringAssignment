@@ -60,9 +60,7 @@ public class BankApplication extends JFrame {
 		
 		super("Bank Application");
 		
-		//15:
-		//Variables already declared as global variable
-		initComponents();
+			initComponents();
 	}
 	
 	public void initComponents() {
@@ -207,7 +205,6 @@ public class BankApplication extends JFrame {
     	
     	setDefaultCloseOperation(EXIT_ON_CLOSE);
     	
-       	//I created a methods to take care of the action listeners
 		setOverdraft.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 			
@@ -220,12 +217,7 @@ public class BankApplication extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				firstItemInList();
 			}
-		};
-		
-		
-		//10:
-		//Two ActionListeners of the same name
-		//Changed name of next1 to next for better naming
+		};	
 		
 		ActionListener next = new ActionListener(){
 			public void actionPerformed(ActionEvent e){
@@ -344,7 +336,6 @@ public class BankApplication extends JFrame {
 		});		
 	}
 	
-	//I changed methods from public to private
 	private void saveOpenValues(){		
 		if (openValues){
 			surnameTextField.setEditable(false);
@@ -543,9 +534,7 @@ public class BankApplication extends JFrame {
 	
 	private void listAllItems()
 	{
-		JFrame frame = new JFrame("TableDemo");
-		//Variable never used 
-	
+		JFrame frame = new JFrame("TableDemo");	
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		String col[] = {"ID","Number","Name", "Account Type", "Balance", "Overdraft"};
 		
@@ -580,7 +569,6 @@ public class BankApplication extends JFrame {
 		else if(answer == JOptionPane.NO_OPTION)
 			dispose();
 		
-		//no need for the last else if (did nothing)
 	}
 	
 	private void accountDeposit()
@@ -664,22 +652,18 @@ public class BankApplication extends JFrame {
 		table.clear();
 
 		fc = new JFileChooser();
-		int returnVal = fc.showOpenDialog(null);
-		//replaced if statement with try catch
-        
-            try // open file
+		int returnVal = fc.showOpenDialog(null);    
+            try 
             {
             	if(fc.getSelectedFile()!=null)
             		input = new RandomAccessFile( fc.getSelectedFile(), "r" );
-            } // end try
+            }
             catch ( IOException ioException )
             {
             	JOptionPane.showMessageDialog(null, "File Does Not Exist.");
-            } // end catch
+            } 
     			
-    	} // end method openFile
-
-        
+    	}     
 	
 	static String fileToSaveAs = "";
 	
@@ -690,17 +674,15 @@ public class BankApplication extends JFrame {
 	      {
 	         output = new RandomAccessFile( fileToSaveAs, "rw" );
 	         JOptionPane.showMessageDialog(null, "Accounts saved to " + fileToSaveAs);
-	      } // end try
+	      } 
 	      catch ( IOException ioException )
 	      {
 	    	  JOptionPane.showMessageDialog(null, "File does not exist.");
-	      } // end catch
+	      } 
 		}
 		else
 			saveToFileAs();
 	   }
-	
-	
 	
 	private static void saveToFileAs(){
 
@@ -719,38 +701,36 @@ public class BankApplication extends JFrame {
 			JOptionPane.showMessageDialog(null, "Save cancelled by user");
 		}
 
-		//Else is unnecessary
 		try {
 			if(fc.getSelectedFile()==null){
 				JOptionPane.showMessageDialog(null, "Cancelled");
 			}
 			output = new RandomAccessFile(fc.getSelectedFile(), "rw" );
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 	
 	private static void closeFile() 
 	   {
-	      try // close file and exit
+	      try 
 	      {
 	         if ( input != null )
 	            input.close();
-	      } // end try
+	      } 
 	      catch ( IOException ioException )
 	      {
 	         
 	    	  JOptionPane.showMessageDialog(null, "Error closing file.");//System.exit( 1 );
-	      } // end catch
-	   } // end method closeFile
+	      } 
+	   } 
 	
 	private static void readRecords()
 	{
 
 		RandomAccessBankAccount record = new RandomAccessBankAccount();
 
-		try // read a record and display
+		try 
 		{
 			while ( true )
 			{
@@ -779,17 +759,17 @@ public class BankApplication extends JFrame {
 				table.put(hash, ba);
 
 
-			} // end while
-		} // end try
-		catch ( EOFException eofException ) // close file
+			} 
+		} 
+		catch ( EOFException eofException ) 
 		{
-			return; // end of file was reached
-		} // end catch
+			return; 
+		} 
 		catch ( IOException ioException )
 		{
 			JOptionPane.showMessageDialog(null, "Error reading file.");
 			System.exit( 1 );
-		} // end catch
+		} 
 	}
 
 	private static void saveToFile(){
